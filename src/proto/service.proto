@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package proto;
+
+message setReq {
+	string key = 1;
+	bytes value = 2;
+}
+
+message getReq {
+	string key = 1;
+}
+
+message setRes {
+	bytes value = 1;
+}
+
+message getRes {
+}
+
+service makeService {
+	rpc Set(setReq) returns (setRes);
+	rpc Get(getReq) returns (getRes);
+}
